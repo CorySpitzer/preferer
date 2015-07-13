@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150713214914) do
+ActiveRecord::Schema.define(version: 20150713221859) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,10 +27,18 @@ ActiveRecord::Schema.define(version: 20150713214914) do
   create_table "questions", force: :cascade do |t|
     t.string   "option_a"
     t.string   "option_b"
-    t.integer  "option_a_count", default: 0
-    t.integer  "option_b_count", default: 0
+    t.integer  "option_a_count",       default: 0
+    t.integer  "option_b_count",       default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image_a_file_name"
+    t.string   "image_a_content_type"
+    t.integer  "image_a_file_size"
+    t.datetime "image_a_updated_at"
+    t.string   "image_b_file_name"
+    t.string   "image_b_content_type"
+    t.integer  "image_b_file_size"
+    t.datetime "image_b_updated_at"
   end
 
 end

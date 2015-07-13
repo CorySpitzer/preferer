@@ -3,9 +3,20 @@
     <%= f.label :option_a, "Option A" %>
     <%= f.text_field :option_a, class: "form-control" %>
   </div>
+
+  <div class="form-group">
+    <%= f.label :image_a, "Image A" %>
+    <%= f.file_field :image_a, autocomplete: "off" %>
+  </div>
+
   <div class="form-group">
     <%= f.label :option_b, "Option B" %>
     <%= f.text_field :option_b, class: "form-control"  %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :image_b, "Image B" %>
+    <%= f.file_field :image_b, autocomplete: "off" %>
   </div>
 
   <%= f.submit "Save", class: "btn btn-success" %>
