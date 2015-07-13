@@ -1,6 +1,7 @@
 class QuestionsController < ApplicationController
 
   def index
+    sleep 1
     @questions = Question.paginate(page: params[:page], per_page: 10)
     respond_to do |format|
       format.html
