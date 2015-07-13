@@ -29,7 +29,13 @@ describe "submitting a question" do
 end
 
 describe "Loading more question with scrolling" do
-  it 'loads more question with scrolling' do
-
+  it 'loads more question with scrolling', js: true do
+    51.times do |n|
+      Question.create! option_a: (n+1).to_s, option_b: 'b'
+    end
+    visit root_path
+    expect(page).to have_no_content '51'
+    page.evaluate_script('window.scrollTo(0, document.height)')
+    expect(page).to have_content '51'
   end
 end
