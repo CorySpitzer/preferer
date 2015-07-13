@@ -18,8 +18,9 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    @question = Question.create!(question_params)
+    @question = Question.create(question_params)
     respond_to do |format|
+      format.html { redirect_to root_path }
       format.js
     end
   end
@@ -35,7 +36,7 @@ class QuestionsController < ApplicationController
 private
 
   def question_params
-    params.require(:question).permit :option_a, :option_b, :option_a_count, :option_b_count
+    params.require(:question).permit :option_a, :option_b, :option_a_count, :option_b_count, :image_a, :image_b
   end
 
 end

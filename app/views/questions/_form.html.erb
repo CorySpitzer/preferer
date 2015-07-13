@@ -1,4 +1,4 @@
-<%= form_for @question, remote: true do |f| %>
+<%= form_for @question do |f| %>
   <div class="form-group">
     <%= f.label :option_a, "Option A" %>
     <%= f.text_field :option_a, class: "form-control" %>

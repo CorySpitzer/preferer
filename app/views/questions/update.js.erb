@@ -1,1 +1,3 @@
-$("#<%= @question.id %>").children().first().empty().append("<%= j render('vote_totals', question: @question) %>");
+$("#question_<%= @question.id %>_option_a").html("<%= @question.option_a_percentage %>");
+$("#question_<%= @question.id %>_option_b").html("<%= @question.option_b_percentage %>");
+$("#question_<%= @question.id %>_votes").html("<%= @question.total_count %> votes");

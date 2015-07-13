@@ -24,7 +24,8 @@ describe "submitting a question" do
     fill_in "Option B", with: "use Ember"
     click_on "Save"
     expect(page).to have_no_content "Option A"
-    expect(page).to have_content "use Rails or use Ember"
+    expect(page).to have_content "use Rails"
+    expect(page).to have_content "use Ember"
   end
 end
 
@@ -42,11 +43,11 @@ end
 
 describe "voting on an option" do
   it "displays the number of votes for both options", js: true do
-    Question.create option_a: "use ember", option_b: "use rails"
+    question = Question.create option_a: "use ember", option_b: "use rails"
     visit root_path
-    click_on "use rails"
-    expect(page).to have_content "use rails: 100%"
-    expect(page).to have_content "use ember: 0%"
+    click_on "question_#{question.id}_option_b_link"
+    expect(page).to have_content "100%"
+    expect(page).to have_content "0%"
   end
 end
 

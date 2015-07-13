@@ -22,5 +22,21 @@ body {
 }
 
 .question {
+  height: 400px;
+}
+
+.question-choice {
   height: 300px;
+}
+
+.image {
+  margin-bottom: 20px;
+}
+
+.selected {
+  opacity: 0.5;
+}
+
+.image:hover {
+  opacity: 0.5;
 }

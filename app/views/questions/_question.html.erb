@@ -1,22 +1,48 @@
 <div id="<%=question.id %>" class="row">
-  <div class="col-md-6">
+  <div class="col-md-8">
     <p>
       Would you rather:
     </p>
-    <p>
-      <%= link_to question.option_a, question_path(question,
-                                                   question: {
-                                                     option_a_count: question.option_a_count + 1
-                                                    }), method: :patch, remote: true %>
-      or
-      <%= link_to question.option_b, question_path(question,
-                                                   question: {
-                                                     option_b_count: question.option_b_count + 1
-                                                    }), method: :patch, remote: true %>
-    </p>
+    <div class="row">
+      <div class="col-md-5">
+        <div class="question-choice">
+          <%= link_to question_path(question, question: { option_a_count: question.option_a_count + 1}),
+                      id: "question_#{question.id}_option_a_link", method: :patch, remote: true do %>
+            <% if question.image_a? %>
+              <%= image_tag question.image_a.url(:medium), class: "image" %>
+            <% else %>
+              no image uploaded
+            <% end %>
+          <% end %>
+          <p id="question_<%=question.id%>_option_a" class="text-center">
+            <%= question.option_a %>
+          </p>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <p id="question_<%=question.id%>_votes">
+          or
+        </p>
+      </div>
+      <div class="col-md-5">
+        <div class="question-choice">
+          <%= link_to question_path(question, question: { option_b_count: question.option_b_count + 1}),
+                                                id: "question_#{question.id}_option_b_link", method: :patch, remote: true do %>
+            <% if question.image_b? %>
+              <%= image_tag question.image_b.url(:medium), class: "image" %>
+            <% else %>
+              no image uploaded
+            <% end %>
+          <% end %>
+          <p id="question_<%=question.id%>_option_b" class="text-center">
+            <%= question.option_b %>
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div class="col-md-6">
+  <div class="col-md-4">
     <%= render "comments/form", question: question %>
   </div>
 </div>
