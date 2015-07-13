@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+questions = Question.create( [{ option_a: 'a', option_b: 'b' },
+                              { option_a: 'Q', option_b: 'Z' }] * 50 )
+
+                            

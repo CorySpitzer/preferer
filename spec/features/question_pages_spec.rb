@@ -27,3 +27,9 @@ describe "submitting a question" do
     expect(page).to have_content "Would you rather use Rails or use Ember?"
   end
 end
+
+describe "Loading more question with scrolling" do
+  it 'loads more question with scrolling' do
+
+  end
+end

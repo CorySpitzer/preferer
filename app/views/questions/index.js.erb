@@ -1,0 +1,2 @@
+$('#questions').append('<%= j render("questions") %>');
+$('.pagination').replaceWith('<%= j will_paginate(@questions) %>');
