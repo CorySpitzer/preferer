@@ -24,10 +24,18 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def update
+    @question = Question.find(params[:id])
+    @question.update(question_params)
+    respond_to do |format|
+      format.js
+    end
+  end
+
 private
 
   def question_params
-    params.require(:question).permit :option_a, :option_b
+    params.require(:question).permit :option_a, :option_b, :option_a_count, :option_b_count
   end
 
 end

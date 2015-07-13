@@ -1,0 +1,1 @@
+$("#<%= @question.id %> p").last().replaceWith("<%= j render('vote_totals', question: @question) %>");

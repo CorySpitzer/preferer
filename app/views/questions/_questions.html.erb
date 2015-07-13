@@ -1,5 +1,19 @@
 <% @questions.each do |question| %>
-  <p>
-    <%= question.option_a + ' or ' + question.option_b + '? ' %>
-  </p>
+  <div id="<%=question.id %>">
+    <p>
+      Would you rather:
+    </p>
+    <p>
+      <%= link_to question.option_a, question_path(question,
+                                                   question: {
+                                                     option_a_count: question.option_a_count + 1
+                                                    }), method: :patch, remote: true %>
+      or
+      <%= link_to question.option_b, question_path(question,
+                                                   question: {
+                                                     option_b_count: question.option_b_count + 1
+                                                    }), method: :patch, remote: true %>
+    </p>
+    <hr>
+  </div>
 <% end %>

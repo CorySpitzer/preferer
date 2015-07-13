@@ -39,3 +39,12 @@ describe "Loading more question with scrolling" do
     expect(page).to have_content '51'
   end
 end
+
+describe "voting on an option" do
+  it "displays the number of votes for both options", js: true do
+    Question.create option_a: "use ember", option_b: "use rails"
+    visit root_path
+    click_on "use rails"
+    expect(page).to have_content "use rails: 1 votes"
+  end
+end
