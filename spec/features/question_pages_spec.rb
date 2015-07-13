@@ -49,3 +49,10 @@ describe "voting on an option" do
     expect(page).to have_content "use ember: 0%"
   end
 end
+
+describe "leaving a comment" do
+  it "displays the new comment next to the question" do
+    Question.create option_a: "use ember", option_b: "use rails"
+    visit root_path
+  end
+end

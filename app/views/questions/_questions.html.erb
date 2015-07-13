@@ -1,6 +1,7 @@
 <ul class="list-unstyled">
-<% @questions.each do |question| %>
-  <li>
-    <%= render "question", question: question %>
-  </li>
-<% end %>
+  <% @questions.each do |question| %>
+    <li class="question">
+      <%= render "question", question: question %>
+    </li>
+  <% end %>
+</ul>

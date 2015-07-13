@@ -1,1 +1,1 @@
-$("#<%= @question.id %>").empty().append("<%= j render('vote_totals', question: @question) %>");
+$("#<%= @question.id %>").children().first().empty().append("<%= j render('vote_totals', question: @question) %>");

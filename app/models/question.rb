@@ -1,9 +1,10 @@
 class Question < ActiveRecord::Base
   validates_presence_of :option_a
   validates_presence_of :option_b
+  has_many :comments
 
-  def make
-    "Would you rather #{option_a} or #{option_b}?"
+  def recent_comments(n)
+    comments.order(id: :desc).limit(n)
   end
 
   def total_count

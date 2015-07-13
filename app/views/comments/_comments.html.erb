@@ -1,0 +1,9 @@
+<div id="comments_<%= question.id %>">
+  <h5>Comments</h5>
+  <ul class="list-unstyled">
+    <% question.recent_comments(3).each do |comment| %>
+      <li><%= render "comment", comment: comment %></li>
+      <hr>
+    <% end %>
+  </ul>
+</div>
