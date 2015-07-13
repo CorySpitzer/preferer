@@ -1,9 +1,12 @@
 <%= form_for @question, remote: true do |f| %>
-  <%= f.label :option_a, "Option A" %>
-  <%= f.text_field :option_a %>
+  <div class="form-group">
+    <%= f.label :option_a, "Option A" %>
+    <%= f.text_field :option_a, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :option_b, "Option B" %>
+    <%= f.text_field :option_b, class: "form-control"  %>
+  </div>
 
-  <%= f.label :option_b, "Option B" %>
-  <%= f.text_field :option_b %>
-
-  <%= f.submit "Save" %>
+  <%= f.submit "Save", class: "btn btn-success" %>
 <% end %>
