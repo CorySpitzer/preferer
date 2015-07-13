@@ -15,3 +15,15 @@ describe 'loading the question form' do
     expect(page).to have_content 'Option A'
   end
 end
+
+describe "submitting a question" do
+  it 'displays the question', js: true do
+    visit root_path
+    click_on 'Ask Question'
+    fill_in "Option A", with: "use Rails"
+    fill_in "Option B", with: "use Ember"
+    click_on "Save"
+    expect(page).to have_no_content "Option A"
+    expect(page).to have_content "Would you rather use Rails or use Ember?"
+  end
+end
