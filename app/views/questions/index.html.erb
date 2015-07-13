@@ -3,5 +3,9 @@
 </p>
 
 <div id="questions">
-
+  <% @questions.each do |question| %>
+    <p>
+      <%= question.make %>
+    </p>
+  <% end %>
 </div>
