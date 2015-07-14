@@ -3,23 +3,27 @@ require "rails_helper"
 describe "root path" do
   it "displays a button to ask a question" do
     visit root_path
-    expect(page).to have_content("Ask Question")
+    expect(page).to have_content("Ask a Question")
   end
 end
 
 describe 'loading the question form' do
   it 'loads the question form', js: true do
+    user = FactoryGirl.create :user
+    login_as user
     visit root_path
     expect(page).to have_no_content 'Save'
-    click_on 'Ask Question'
+    click_on 'Ask a Question'
     expect(page).to have_content 'Option A'
   end
 end
 
 describe "submitting a question" do
   it 'displays the question', js: true do
+    user = FactoryGirl.create :user
+    login_as user
     visit root_path
-    click_on 'Ask Question'
+    click_on 'Ask a Question'
     fill_in "Option A", with: "use Rails"
     fill_in "Option B", with: "use Ember"
     click_on "Save"
