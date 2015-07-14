@@ -39,9 +39,10 @@ describe "Loading more question with scrolling" do
       Question.create! option_a: (n+1).to_s, option_b: 'b'
     end
     visit root_path
-    expect(page).to have_no_content '6'
+save_and_open_page
+    expect(page).to have_no_content '1'
     page.evaluate_script('window.scrollTo(0, document.height)')
-    expect(page).to have_content '6'
+    expect(page).to have_content '1'
   end
 end
 

@@ -1,5 +1,5 @@
 $("#question_<%= @question.id %>_option_a").html("<%= @question.option_a_percentage %>");
 $("#question_<%= @question.id %>_option_b").html("<%= @question.option_b_percentage %>");
-$("#question_<%= @question.id %>_votes").html("<%= @question.total_count %> votes");
+$("#question_<%= @question.id %>_votes").html("<%= @question.vote_count %> votes");
 $("#question_<%= @question.id %>_option_a_link_container").html("<%= j image_tag @question.image_a.url(:medium), class: 'image' %>");
 $("#question_<%= @question.id %>_option_b_link_container").html("<%= j image_tag @question.image_b.url(:medium), class: 'image' %>");

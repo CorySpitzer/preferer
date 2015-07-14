@@ -3,7 +3,7 @@ class QuestionsController < ApplicationController
 
   def index
     sleep 1
-    @questions = Question.paginate(page: params[:page], per_page: 5)
+    @questions = Question.order(sort_options).paginate(page: params[:page], per_page: 5)
     flash[:notice] = ''
     respond_to do |format|
       format.html
@@ -39,6 +39,14 @@ private
 
   def question_params
     params.require(:question).permit :option_a, :option_b, :option_a_count, :option_b_count, :image_a, :image_b
+  end
+
+  def sort_options
+    if params[:sort]
+      params[:sort]
+    else
+      "id desc"
+    end
   end
 
 end
