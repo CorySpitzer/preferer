@@ -8,11 +8,7 @@
         <div class="question-choice">
           <%= link_to question_path(question, question: { option_a_count: question.option_a_count + 1}),
                       id: "question_#{question.id}_option_a_link", method: :patch, remote: true do %>
-            <% if question.image_a? %>
-              <%= image_tag question.image_a.url(:medium), class: "image" %>
-            <% else %>
-              no image uploaded
-            <% end %>
+            <%= image_tag question.image_a.url(:medium), class: "image" %>
           <% end %>
           <p id="question_<%=question.id%>_option_a" class="text-center">
             <%= question.option_a %>
@@ -27,12 +23,8 @@
       <div class="col-md-5">
         <div class="question-choice">
           <%= link_to question_path(question, question: { option_b_count: question.option_b_count + 1}),
-                                                id: "question_#{question.id}_option_b_link", method: :patch, remote: true do %>
-            <% if question.image_b? %>
-              <%= image_tag question.image_b.url(:medium), class: "image" %>
-            <% else %>
-              no image uploaded
-            <% end %>
+                      id: "question_#{question.id}_option_b_link", method: :patch, remote: true do %>
+            <%= image_tag question.image_b.url(:medium), class: "image" %>
           <% end %>
           <p id="question_<%=question.id%>_option_b" class="text-center">
             <%= question.option_b %>
