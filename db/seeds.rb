@@ -8,3 +8,5 @@
 
 # questions = Question.create( [{ option_a: 'a', option_b: 'b' },
 #                               { option_a: 'Q', option_b: 'Z' }] * 50 )
+
+User.create(email: 'anon@anon.who', password: '12341234')

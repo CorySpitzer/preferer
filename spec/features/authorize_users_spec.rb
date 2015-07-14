@@ -5,4 +5,5 @@ describe 'the authorization paths' do
     visit new_question_path
     expect(page).to have_content 'You would rather sign in :)'
   end
+
 end

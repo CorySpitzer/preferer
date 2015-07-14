@@ -54,15 +54,3 @@ describe "voting on an option" do
     expect(page).to have_content "0%"
   end
 end
-
-describe "leaving a comment" do
-  it "displays the new comment next to the question", js: true do
-    question = Question.create option_a: "use ember", option_b: "use rails"
-    visit root_path
-    fill_in "comment_text", with: "I love rails"
-    fill_in "comment_author", with: "Ben"
-    click_on "Comment"
-    expect(page).to have_content "I love rails"
-    expect(page).to have_no_css "form#new_comment_#{question.id}"
-  end
-end
